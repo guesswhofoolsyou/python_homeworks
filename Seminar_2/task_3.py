@@ -1,17 +1,30 @@
-# Задайте список из n чисел последовательности (1+1/n)^n и выведите на экран их сумму.
+# Дан массив размера N. После каждого отрицательного элемента массива вставьте элемент с нулевым значением.
 # Пример:
-# - Для n = 6: [2.0, 2.25, 2.37037037037037, 2.44140625, 2.4883199999999994, 2.5216263717421135]
+# # - пусть N = 4, тогда [28, -46, 14, -14] => [28, -46, 0, 14, -14, 0]
 
+from random import randint
 
-def get_sequence(n):
+def fill_random_array(num):
+    result_array = [randint(-10,11) for x in range(num)]
+    return result_array
+
+def fill_zero (array, num):
     result_array = []
-    sum = 0
-    for i in range(0, n):
-        result_array.append((1+1/(i+1))**(i+1))
-        sum += result_array[i-1]
-    print(result_array)
-    print(f"Сумма последовательности равна: {sum}")
+    array_length = num
+    counter = 0
+    for i in range (0, array_length):
+        if array[counter] < 0:
+            result_array[i] = array[counter]
+            result_array[i+1] = 0
+            array_length += 1
+            counter += 1
+            i += 1
+        elif array[counter] >= 0:
+            result_array[i] = array[counter]
+    print (result_array)
 
 
-length = int(input("Введите кол-во символов последовательности:\n"))
-get_sequence(length)
+num = int(input("Введите длину массива:\n"))
+array = fill_random_array(num)
+print(array)
+result_array = fill_zero(array, num)
