@@ -70,7 +70,6 @@ for i in read_text:
         else:
             new_value = value + len(alfavit_ENG) - decr_password - 3
         decr_text += alfavit_ENG[new_value]
-
     else:
         print ('Неизвестный язык')
 
