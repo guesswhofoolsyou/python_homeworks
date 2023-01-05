@@ -1,6 +1,6 @@
 from typing import Optional
 from typing import List
-from const import data
+from const import data as dt
 import csv
 
 
@@ -26,7 +26,7 @@ def get_list_data(filename: str) -> List[str]:
 
 
 def get_lines():
-    with open(data, "r", newline='') as csvfile:
+    with open(dt, "r", newline='') as csvfile:
         result = csv.DictReader(csvfile, dialect='excel', delimiter=";")
         data = []
         for row in result:
